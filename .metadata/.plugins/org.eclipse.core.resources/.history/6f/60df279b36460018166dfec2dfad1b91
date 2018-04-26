@@ -1,0 +1,17 @@
+
+public class InsertSorted {
+	public static void main(String[] args){
+		int re;
+		System.out.println("Hello World");
+		re = insertSort({1,2,3});
+	}
+	
+	public static double insertSort(double[] input){
+		int i = 0;
+		for(i, i<input.length, i++){
+			System.out.println(input(i));
+		return i;
+		}
+	}
+
+}

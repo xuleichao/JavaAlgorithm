@@ -1,0 +1,25 @@
+
+public class InsertSorted {
+	public static void main(String[] args){
+		double re;
+		double[] arr = {1,2,3,4};
+		System.out.println("Hello World");
+		re = insertSort(arr);
+	}
+	
+	public static double insertSort(double[] input){
+		int len = input.length;
+		if (len >= 3){//长度大于三时执行排序
+			int j;
+			for(j=2;j<len;j++){
+				int i = j-1;
+				double key = input[j];
+				while (i > 0 && input[i] > key){
+					
+				}
+			}
+		}
+		return 
+	}
+
+}
