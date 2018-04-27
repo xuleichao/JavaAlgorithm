@@ -1,0 +1,13 @@
+
+public class MergeSorted {
+	public static void main(String[] args){
+		System.out.println("test");
+		MergeSort({5,4,3,21});
+	}
+	public static double[] MergeSort(double[] input){
+		int numLen = input.length;
+		int mid = numLen / 2;
+		return input;
+	}
+
+}

@@ -1,0 +1,19 @@
+import java.util.Arrays;
+
+public class MergeSorted {
+	public static void main(String[] args){
+		System.out.println("test");
+		double [] i = {5,4,3,2,1};
+		MergeSort(i);
+	}
+	public static double[] MergeSort(double[] input){
+		int numLen = input.length;
+		int mid = numLen / 2;
+		//System.out.println(mid);
+		double[] new_input = {};
+		double[] input_0 = Arrays.copyOfRange(input, 0, mid+1);
+		double[] input_1 = Arrays.copyOfRange(input, mid+1, numLen);
+		System.out.println(Arrays.toString(input_0));
+	}
+
+}

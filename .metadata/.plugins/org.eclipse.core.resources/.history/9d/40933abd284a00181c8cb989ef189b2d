@@ -4,8 +4,7 @@ public class MergeSorted {
 	public static void main(String[] args){
 		System.out.println("test");
 		double [] i = {5,4,3,2,1};
-		double[] aa = MergeSort(i);
-		System.out.println(Arrays.toString(aa));
+		MergeSort(i);
 	}
 	public static double[] MergeSort(double[] input){
 		int numLen = input.length;
@@ -27,6 +26,7 @@ public class MergeSorted {
 				System.out.println(input_0.length==0);
 				if(input_0.length==0){break;}
 				else{
+				
 				i = input_0[0];}
 			}
 			else{
@@ -35,11 +35,14 @@ public class MergeSorted {
 				System.out.println(Arrays.toString(input_1));
 				if(input_1.length==0){break;}
 				else{
+				
 				j = input_1[0];}
-			}	
+			}
+			
+			
 			System.out.println(Arrays.toString(newNum));
 		}
-		return newNum;
+		return input;
 	}
 	public static double[] delete(double[] input, int index){
 		double[] newNum = new double[input.length-1];
