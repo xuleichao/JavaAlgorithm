@@ -2,54 +2,43 @@ import java.util.Arrays;
 
 public class MergeSorted {
 	public static void main(String[] args){
-		System.out.println("test");
-		double [] i = {5,4,3,2,1};
-		double[] aa = MergeSort(i);
-		System.out.println(Arrays.toString(aa));
+		double[] a = {1,2,3};
+		SortedMain(a);
 	}
-	public static double[] MergeSort(double[] input){
-		int numLen = input.length;
-		int mid = numLen / 2 - 1;
-		System.out.println(mid);
-		double[] new_input = {};
-		double[] input_0 = Arrays.copyOfRange(input, 0, mid+1);
-		double[] input_1 = Arrays.copyOfRange(input, mid+1, numLen);
-		System.out.println(Arrays.toString(input_0));
-		double[] newNum = new double[input.length];
-		double i = input_0[0];
-		double j = input_1[0];
-		while((input_0 != null) & (input_1 != null)){
-			//System.out.print(i,j);
-			if(i > j){
-				newNum[0] = i;
-				input_0 = delete(input_0, 0);
-				System.out.println(Arrays.toString(input_0));
-				System.out.println(input_0.length==0);
-				if(input_0.length==0){break;}
-				else{
-				i = input_0[0];}
+	public static double[] SortedMain(double[] input){
+		int len = input.length;
+		double[] NumArray = null;
+		if(len == 1){
+			NumArray = input;
+		}
+		else if(len == 2){
+			double i = input[0];
+			double j = input[1];
+			if(i >= j){
+				NumArray[0] = i;
+				NumArray[1] = j;
 			}
 			else{
-				newNum[0] = j;
-				input_1 = delete(input_1, 0);
-				System.out.println(Arrays.toString(input_1));
-				if(input_1.length==0){break;}
-				else{
-				j = input_1[0];}
-			}	
-			System.out.println(Arrays.toString(newNum));
-		}
-		return newNum;
-	}
-	public static double[] delete(double[] input, int index){
-		double[] newNum = new double[input.length-1];
-		int count = 0;
-		for(int i=0;i<input.length;i++){
-			if(i != index){
-				newNum[count] = input[i];
+				NumArray[0] = j;
+				NumArray[1] = i;
 			}
 		}
-		return newNum;
-	} 
-
+		else{
+			int split_0 = len / 2;
+			int split_1 = len - split_0;
+			System.out.println(split_1);
+			int i,j;
+			double[] input_0 = null;
+			double[] input_1 = null;
+			for(i=0;i<split_0;i++){
+				input_0[i] = input[i];
+			}
+			for(j=split_0;j<split_1;j++){
+				input_1[j] = input[j];
+			}
+			System.out.println(Arrays.toString(input_0));
+			System.out.println(Arrays.toString(input_1));
+		}
+		return NumArray;
+	}
 }
