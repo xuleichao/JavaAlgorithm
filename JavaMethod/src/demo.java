@@ -10,11 +10,11 @@ import java.util.List;
 
 public class demo {
 	public static void main(String[] args){
-		double[] a={0,1,2,3,4,5};
-		List<double[]> a_list = null;
-		a_list.add(0,a);
-		//Collections.addAll(a_list, a);
-		System.out.println();
+		Integer[] a={0,1,2,3,4,5};
+		List<Integer> a_list = new ArrayList<Integer>(a.length);
+		//a_list.addAll(a);
+		Collections.addAll(a_list, a);
+		System.out.println(a_list);
 		for(int i=0;i<a_list.size();i++){
 			System.out.println(a_list.get(i));
 		}
@@ -27,7 +27,19 @@ public class demo {
 			System.out.println(a_list.get(i));
 		}
 		//a_list.add(0, 9);
-		System.out.println(a_list);
+		System.out.println("test method");
+		exchange(a_list);
+	}
+	public static List exchange(List input_lst){
+		input_lst.add(0);
+		input_lst.add('d');
+		input_lst.add("Hello");
+		input_lst.add(0.33);
+		for(int i=0;i<input_lst.size();i++){
+			System.out.println(input_lst.get(i));
+		}
+		return input_lst;
+		
 	}
 
 }
