@@ -18,13 +18,61 @@ public class demo {
 		List<Double> rightList = new ArrayList<Double>(right.length);
 		Collections.addAll(leftList, left);
 		Collections.addAll(rightList, right);
+		List result0 = MergeSorted(rightList);
 		List result = exchange(leftList, rightList);
-		System.out.println("this is " + result);
+		System.out.println("this is " + result0);
 	}
 	public static List MergeSorted(List inputs_list){
 		// 合并排序函数
-		
-		return inputs_list;
+		int list_size = inputs_list.size();
+		int half_length = list_size / 2;
+		List left = new ArrayList();
+		List right =new ArrayList();
+		//获得左边元素集合
+		for(int i=0;i<half_length;i++){
+			left.add(inputs_list.get(i));
+		}
+		//获得右边元素集合
+		for(int i=half_length;i<list_size;i++){
+			right.add(inputs_list.get(i));
+		}
+		if(left.size()<=2 && right.size()<=2){
+			left = tinySorted(left);
+			right = tinySorted(right);
+			return exchange(left, right);
+		}
+		else if(left.size()<=2 && right.size()>2){
+			right = exchange(left, MergeSorted(right));
+			return right;
+		}
+		else if(left.size()>2 && right.size()<=2){
+			left = exchange(MergeSorted(left), right);
+			return left;
+		}
+		else{
+			return exchange(MergeSorted(left), MergeSorted(right));
+		}
+	}
+	public static List tinySorted(List list){
+		if(list.size() == 1){
+			return list;
+		}
+		else{
+			List new_array = new ArrayList();
+			double a = (double) list.get(0);
+			double b = (double) list.get(1);
+			double r;
+			if(a>=b){
+				new_array.add(b);
+				new_array.add(a);
+				return new_array;
+			}
+			else{
+				new_array.add(a);
+				new_array.add(b);
+				return new_array;
+			}
+		}
 	}
 	public static List exchange(List left, List right){
 		List new_list = new ArrayList();
