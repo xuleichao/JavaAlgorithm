@@ -12,24 +12,6 @@ import javax.swing.event.ListSelectionEvent;
 
 public class demo {
 	public static void main(String[] args){
-		Integer[] a={0,1,2,3,4,5};
-		List<Integer> a_list = new ArrayList<Integer>(a.length);
-		//a_list.addAll(a);
-		Collections.addAll(a_list, a);
-		System.out.println(a_list);
-		for(int i=0;i<a_list.size();i++){
-			System.out.println(a_list.get(i));
-		}
-		
-		int x=5;
-		a_list.remove(0);
-		System.out.println(a_list);
-		int z = a_list.size();
-		for(int i=0;i<z;i++){
-			System.out.println(a_list.get(i));
-		}
-		//a_list.add(0, 9);
-		System.out.println("test method");
 		Double[] left = {3.0,5.0,1.0};
 		Double[] right = {4.0,2.0,5.0,6.0,7.0,3.0};
 		List<Double> leftList = new ArrayList<Double>(left.length);
@@ -38,6 +20,11 @@ public class demo {
 		Collections.addAll(rightList, right);
 		List result = exchange(leftList, rightList);
 		System.out.println("this is " + result);
+	}
+	public static List MergeSorted(List inputs_list){
+		// 合并排序函数
+		
+		return inputs_list;
 	}
 	public static List exchange(List left, List right){
 		List new_list = new ArrayList();
@@ -61,10 +48,7 @@ public class demo {
 		else{
 			new_list.addAll(left);
 		}
-		
-		System.out.println(left);
-		System.out.println(right);
-		System.out.print(new_list);
+
 		return new_list;
 		
 	}
