@@ -3,7 +3,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.event.ListSelectionEvent;
 
 /*
  1. asList 可以将数组转化为list，但是这种list 不能增删里面的元素，否则报错
@@ -14,13 +13,17 @@ public class demo {
 	public static void main(String[] args){
 		Double[] left = {3.0,5.0,1.0};
 		Double[] right = {4.0,2.0,5.0,6.0,7.0,3.0};
-		List<Double> leftList = new ArrayList<Double>(left.length);
-		List<Double> rightList = new ArrayList<Double>(right.length);
-		Collections.addAll(leftList, left);
-		Collections.addAll(rightList, right);
-		List result0 = MergeSorted(rightList);
-		List result = exchange(leftList, rightList);
+		List<Double> test_list = GnrtRandomList(20);
+		List result0 = MergeSorted(test_list);
 		System.out.println("this is " + result0);
+	}
+	public static List GnrtRandomList(int num){
+		List new_list = new ArrayList();
+		for(int i=0;i<num;i++){
+			Double x = (Double) Math.random()*100;
+			new_list.add(x);
+		}
+		return new_list;
 	}
 	public static List MergeSorted(List inputs_list){
 		// 合并排序函数
@@ -42,11 +45,11 @@ public class demo {
 			return exchange(left, right);
 		}
 		else if(left.size()<=2 && right.size()>2){
-			right = exchange(left, MergeSorted(right));
+			right = exchange(tinySorted(left), MergeSorted(right));
 			return right;
 		}
 		else if(left.size()>2 && right.size()<=2){
-			left = exchange(MergeSorted(left), right);
+			left = exchange(MergeSorted(left), tinySorted(right));
 			return left;
 		}
 		else{
