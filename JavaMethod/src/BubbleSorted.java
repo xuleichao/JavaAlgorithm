@@ -14,7 +14,7 @@ public class BubbleSorted {
 		int count = 0;
 		while(!flag){
 			boolean f = false;
-			for(int i=count;i<inputs_size-count-1;i++){
+			for(int i=0;i<inputs_size-count-1;i++){
 				double forth = (double) ((List) x).get(i);
 				double back = (double) ((List) x).get(i+1);
 				if(forth > back){
