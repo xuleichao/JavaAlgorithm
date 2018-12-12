@@ -4,19 +4,30 @@ public class BubbleSorted {
 	public static void main(String[] args){
 		MergeSorted merge = new MergeSorted();
 		Object x = merge.GnrtRandomList(20);
-		//System.out.println(x);
-		bubblesorted(x);
+		System.out.println(x);
+		List y = bubblesorted(x);
+		System.out.println(y);
 	}
 	public static List bubblesorted(Object x){
 		boolean flag =  false;
 		int inputs_size = ((List) x).size();
+		int count = 0;
 		while(!flag){
-			for(int i=0;i<inputs_size-1;i++){
-				for(int j=i+1;j<inputs_size-i;j++){
-					System.out.printf("%d , %d\n",i,j);
-			flag = true;
+			boolean f = false;
+			for(int i=count;i<inputs_size-count-1;i++){
+				double forth = (double) ((List) x).get(i);
+				double back = (double) ((List) x).get(i+1);
+				if(forth > back){
+					x = swap((List<Object>) x, i, i+1);
+					f = true;
 				}
+				
 			}
+			if(f != true){
+				flag=true;
+			}
+			count += 1;
+			
 		}
 		return (List) x;
 	}
