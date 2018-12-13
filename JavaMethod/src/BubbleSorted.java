@@ -3,7 +3,7 @@ import java.util.List;
 public class BubbleSorted {
 	public static void main(String[] args){
 		MergeSorted merge = new MergeSorted();
-		Object x = merge.GnrtRandomList(20);
+		Object x = merge.GnrtRandomList();
 		System.out.println(x);
 		List y = bubblesorted(x);
 		System.out.println(y);

@@ -18,6 +18,10 @@ public class MergeSorted {
 		List result0 = MergeSorted(test_list);
 		System.out.println("this is " + result0);
 	}
+	public List GnrtRandomList(){
+		List result = GnrtRandomList(10);
+		return result;
+	}
 	public static List GnrtRandomList(int num){
 		List new_list = new ArrayList();
 		for(int i=0;i<num;i++){
