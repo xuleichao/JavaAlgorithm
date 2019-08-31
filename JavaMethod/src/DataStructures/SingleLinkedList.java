@@ -67,6 +67,10 @@ public class SingleLinkedList {
 		}
 		cur.next = cur.next.next;
 	}
+	
+	public static void main(String args[]){
+		
+	}
 }
 
 
