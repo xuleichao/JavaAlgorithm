@@ -113,7 +113,7 @@ public class SingleLinkedList {
 		mylist.display();
 		mylist.insertHead(1);
 		mylist.display();
-		assert mylist.isEmpty();
+		assert mylist.isEmpty();  //?????????
 		System.out.println(mylist.isEmpty());
 	}
 }
