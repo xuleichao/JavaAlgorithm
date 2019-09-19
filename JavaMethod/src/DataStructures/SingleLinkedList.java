@@ -20,7 +20,7 @@ public class SingleLinkedList {
 	public void insertNth(int x, int position){
 		// 判断是否可以被删除
 		if (position < 0 || position > getSize()){
-			throw new RuntimeException("input position is not satisfied.");
+			throw new RuntimeException("input position is not satisfied.")	
 		}
 		
 		else if (position == 0){
@@ -49,7 +49,7 @@ public class SingleLinkedList {
 	public void deleteNthNode(int position){
 		// 判断是否可以被删除
 		if (position < 0 || position > getSize()){
-			throw new RuntimeException("input position is not satisfied.");
+			throw new RuntimeException("input position is not satisfied.")	
 		}
 				
 		
@@ -68,44 +68,6 @@ public class SingleLinkedList {
 		cur.next = cur.next.next;
 	}
 	
-	//获取链表的长度
-	public int getSize(){
-		if (head.next == null){
-			return 0;
-		}
-		else{
-			Node current_node = head;
-			int count = 1;
-			while (current_node != null){
-				current_node = current_node.next;
-				count += 1;
-			}
-			return count;
-		}
-	}
-	
-	//判断是否为空链表
-	public boolean isEmpty(){
-		if (getSize() == 0){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
-	// 打印链表信息
-	public void display(){
-
-		Node current = head;
-		while (current != null){
-			System.out.println(current.value + " ");
-			current = current.next;
-		}
-		System.out.println();
-		
-	}
-	
 	public static void main(String args[]){
 		SingleLinkedList mylist = new SingleLinkedList();
 		assert mylist.isEmpty();
@@ -115,6 +77,9 @@ public class SingleLinkedList {
 		mylist.display();
 		assert mylist.isEmpty();  //?????????
 		System.out.println(mylist.isEmpty());
+		for(int i=0; i<10; ++i){
+			System.out.println(i);
+		}
 	}
 }
 
