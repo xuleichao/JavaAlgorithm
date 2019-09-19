@@ -25,7 +25,7 @@ public class MyArray {
 		if (size == 0){
 			array[0] = e;
 		}
-		for(int i=size-1;(i>0)&(i<=index);i--){
+		for(int i=size-1;i>=index;i--){
 			System.out.println(i);
 			array[i+1] = array[i];
 		}
@@ -41,12 +41,29 @@ public class MyArray {
 		return array.length;
 	}
 	
+	@Override
+	public String toString(){
+		StringBuilder res = new StringBuilder();
+		res.append(String.format("array is size = %d, capacity = %d\n", size, array.length));
+		for(int i = 0;i < size;i++){
+			res.append(String.format("the %d element is %d\n", i, array[i]));
+		}
+		System.out.println(res);
+		return res.toString();
+		
+	}
+	
+	public boolean isEmpty(){
+		return size == 0;
+	}
+	
 	public static void main(String[] args){
 		MyArray a = new MyArray();
 		a.add(0, 2);
 		System.out.println(a.getCapacity());
 		System.out.println(a.size);
 		System.out.println(a.array[0]);
+		String ss = a.toString();
 		
 	}
 }
