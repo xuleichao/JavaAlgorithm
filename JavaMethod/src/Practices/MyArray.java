@@ -48,9 +48,33 @@ public class MyArray {
 		for(int i = 0;i < size;i++){
 			res.append(String.format("the %d element is %d\n", i, array[i]));
 		}
-		System.out.println(res);
 		return res.toString();
 		
+	}
+	
+	//查找元素并返回对应的索引
+	public int find(int ele){
+		for(int i = 0; i < size; i++){
+			if (array[i] == ele){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	//是否包含元素
+	public boolean contains(int ele){
+		for(int i = 0; i < size; i++){
+			if (array[i] == ele){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	//根据索引 get 元素
+	public int get(int idx){
+		return array[idx];
 	}
 	
 	public boolean isEmpty(){
@@ -58,12 +82,15 @@ public class MyArray {
 	}
 	
 	public static void main(String[] args){
-		MyArray a = new MyArray();
-		a.add(0, 2);
-		System.out.println(a.getCapacity());
-		System.out.println(a.size);
-		System.out.println(a.array[0]);
-		String ss = a.toString();
+		MyArray arr = new MyArray(20);
+		for(int i = 0; i < 10; i++)
+			arr.add(i, i);
+		System.out.println(arr);
+		arr.add(0, -1);
+		System.out.println(arr);
+		System.out.println(arr.contains(-2));
+		System.out.println(arr.contains(-1));
+		System.out.println(arr.find(4));
 		
 	}
 }
