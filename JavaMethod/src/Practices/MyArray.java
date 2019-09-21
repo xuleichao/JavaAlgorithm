@@ -20,7 +20,8 @@ public class MyArray<E> {
 			throw new IllegalArgumentException("索引超出范围");
 		}
 		if (size == getCapacity()){
-			throw new IllegalArgumentException("数组已经满了");
+			resize(2 * array.length);
+			//throw new IllegalArgumentException("数组已经满了");
 		}
 		if (size == 0){
 			array[0] = e;
@@ -98,8 +99,17 @@ public class MyArray<E> {
 		size = size - 1;
 	}
 	
+	//resize
+	private void resize(int capacity){
+		E[] newArray = (E[]) new Object[capacity];
+		for(int i = 0; i < size; i++){
+			newArray[i] = array[i];
+		}
+		array = newArray;
+	}
+	
 	public static void main(String[] args){
-		MyArray <Object> arr = new MyArray<>(20);
+		MyArray <Object> arr = new MyArray<>(8);
 		for(int i = 0; i < 10; i++)
 			arr.add(i, i);
 		System.out.println(arr);
@@ -111,6 +121,7 @@ public class MyArray<E> {
 		arr.remove(11);
 		arr.add(6, "ttt");
 		System.out.println(arr);
+		System.out.println(arr.getCapacity());
 		
 	}
 }
