@@ -82,6 +82,11 @@ public class MyArray<E> {
 		return size == 0;
 	}
 	
+	public void addLast(E ele){
+		int lastIdx = getSize();
+		add(lastIdx, ele);
+	}
+	
 	
 	//remove by index
 	public void remove(int idx){
