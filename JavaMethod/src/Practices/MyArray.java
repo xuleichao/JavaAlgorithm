@@ -89,7 +89,7 @@ public class MyArray<E> {
 	
 	
 	//remove by index
-	public void remove(int idx){
+	public E remove(int idx){
 		if (idx < 0 | idx > size){
 			throw new IllegalArgumentException("索引超出范围");
 		}
@@ -97,11 +97,12 @@ public class MyArray<E> {
 		if (size == 0){
 			throw new IllegalArgumentException("试图从空数组中删除数据");
 		}
-		
+		E first = array[0];
 		for(int i = idx + 1; i < size; i++){
 			array[i - 1] = array[i];
 		}
 		size = size - 1;
+		return first;
 	}
 	
 	//resize
