@@ -71,9 +71,21 @@ public class loopArrayQueue<E> implements loopQueueInterface <E>{
 	public String toString(){
 		StringBuilder res = new StringBuilder();
 		res.append("队列元素为：font [");
-		for(int i = font; i < arr.length; i++){
-			res.append(arr[i % arr.length]);
-			res.append(", ");
+		if(tail > font){
+			for(int i = font; i < arr.length; i++){
+				res.append(arr[i % arr.length]);
+				res.append(", ");
+			}
+		}
+		else{
+			for(int i = font; i < arr.length; i++){
+				res.append(arr[i % arr.length]);
+				res.append(", ");
+			}
+			for(int i = 0; i < tail; i++){
+				res.append(arr[i]);
+				res.append(", ");
+			}
 		}
 		res.append("] tail");
 		return res.toString();
@@ -96,5 +108,8 @@ public class loopArrayQueue<E> implements loopQueueInterface <E>{
 		System.out.println("queue font is -> " + queue.dequeue());
 		queue.enqueue("test1");
 		System.out.println(queue);
+		try{queue.enqueue("test1");}
+		catch{System.out.println("ddd")};
+		finally{};
 	}
 }
