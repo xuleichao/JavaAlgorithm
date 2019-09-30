@@ -105,6 +105,14 @@ public class MyArray<E> {
 		return first;
 	}
 	
+	public void sizeAdd(){
+		size += 1;
+	}
+	
+	public void sizesub(){
+		size -= 1;
+	}
+	
 	//resize
 	private void resize(int capacity){
 		E[] newArray = (E[]) new Object[capacity];

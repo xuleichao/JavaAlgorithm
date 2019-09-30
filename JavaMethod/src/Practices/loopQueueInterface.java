@@ -2,10 +2,12 @@ package Practices;
 
 public interface loopQueueInterface<E> {
 	/**
-	 * я╜╩╥╤сап╫с©з
+	 * я╜О©╫О©╫О©╫О©╫О©╫п╫с©О©╫
 	 */
 	int getSize();
 	int getCapacity();
+	int getFont();
+	int gettail();
 	void enqueue(E ele);
 	E dequeue();
 	
