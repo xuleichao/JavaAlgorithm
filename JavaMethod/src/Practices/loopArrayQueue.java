@@ -107,9 +107,6 @@ public class loopArrayQueue<E> implements loopQueueInterface <E>{
 		System.out.println(queue);
 		System.out.println("queue font is -> " + queue.dequeue());
 		queue.enqueue("test1");
-		System.out.println(queue);
-		try{queue.enqueue("test1");}
-		catch{System.out.println("ddd")};
-		finally{};
+		
 	}
 }
