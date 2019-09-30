@@ -61,7 +61,9 @@ public class loopArrayQueue<E> implements loopQueueInterface <E>{
 		if (size == 0)
 			throw new IllegalArgumentException("空队列");
 		E fontitem = arr[font];
+		arr[font] = null;
 		font = font % arr.length + 1;
+		size--;
 		return fontitem;
 	}
 	
@@ -69,8 +71,8 @@ public class loopArrayQueue<E> implements loopQueueInterface <E>{
 	public String toString(){
 		StringBuilder res = new StringBuilder();
 		res.append("队列元素为：font [");
-		for(int i = 0; i < size; i++){
-			res.append(arr[i]);
+		for(int i = font; i < arr.length; i++){
+			res.append(arr[i % arr.length]);
 			res.append(", ");
 		}
 		res.append("] tail");
@@ -79,9 +81,17 @@ public class loopArrayQueue<E> implements loopQueueInterface <E>{
 	
 	public static void main(String [] args){
 		loopArrayQueue <Object> queue = new loopArrayQueue<>();
-		for(int i = 0; i < 10; i++){
+		for(int i = 0; i < 11; i++){
 			queue.enqueue(i);
 		}
 		System.out.println(queue);
+		System.out.println(queue.font);
+		System.out.println(queue.tail);
+		System.out.println("is -> " + queue.dequeue());
+		System.out.println(queue);
+		System.out.println(queue.font);
+		System.out.println(queue.tail);
+		queue.enqueue("test");
+		System.out.println(queue.tail);
 	}
 }
