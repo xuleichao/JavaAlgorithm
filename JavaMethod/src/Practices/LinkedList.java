@@ -60,7 +60,7 @@ public class LinkedList<E> {
 	}
 	
 	public static void main(String[] args){
-		LinkedList LL = new LinkedList("E");
+		LinkedList<Object> LL = new LinkedList<>("E");
 		System.out.println(LL);
 		System.out.println(LL.getSize());
 		LL.insert("ele");
