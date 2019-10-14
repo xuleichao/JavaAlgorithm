@@ -52,7 +52,7 @@ public class LinkedList<E> {
 		return size == 0;
 	}
 	
-	public void insert(E element){
+	public void addFirst(E element){
 		Node newNode = new Node(element);
 		newNode.next = head;
 		head = newNode;
@@ -63,7 +63,7 @@ public class LinkedList<E> {
 		LinkedList<Object> LL = new LinkedList<>("E");
 		System.out.println(LL);
 		System.out.println(LL.getSize());
-		LL.insert("ele");
+		LL.addFirst("ele");
 		System.out.println(LL.getSize());
 		System.out.println(LL);
 	}
