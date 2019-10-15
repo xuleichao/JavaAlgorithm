@@ -91,6 +91,26 @@ public class LinkedList<E> {
 			size++;
 		}
 	
+	// TODO
+	public E get(int index){
+		return (E) "d";
+	}
+	
+	// TODO 修改索引 idx 的元素
+	public void changeEle(int idx){
+		
+	}
+	
+	// TODO 查看是否包含
+	public boolean contains(E ele){
+		return false;
+	}
+	
+	// TODO 删除元素
+	public void remove(int index){
+		
+	}
+	
 	public static void main(String[] args){
 		LinkedList<Object> LL = new LinkedList<>("E");
 		System.out.println(LL);
