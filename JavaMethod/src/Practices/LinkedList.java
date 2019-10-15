@@ -93,6 +93,7 @@ public class LinkedList<E> {
 	
 	// TODO
 	public E get(int index){
+		Node cur = dummyNode.n;
 		return (E) "d";
 	}
 	
