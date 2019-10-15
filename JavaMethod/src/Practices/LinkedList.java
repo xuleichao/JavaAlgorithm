@@ -2,9 +2,8 @@ package Practices;
 
 public class LinkedList<E> {
 	
-	private Node head;
 	private int size;
-	private Node dummyNode = new Node(null);
+	private Node dummyNode;
 	private class Node{
 		public E value;
 		public Node next;
@@ -23,7 +22,7 @@ public class LinkedList<E> {
 	public String toString(){
 		StringBuilder res = new StringBuilder();
 		res.append("LinkedList is: ");
-		Node N = head;
+		Node N = dummyNode.next;
 		while(N != null){
 			res.append(N.value + "->");
 			N = N.next;
@@ -33,9 +32,7 @@ public class LinkedList<E> {
 	}
 	
 	public LinkedList(E ele){
-		head = new Node(ele);
-		head.next = null;
-		dummyNode.next = head;
+		dummyNode = new Node(ele, null);
 		size = 1;
 	}
 	
@@ -55,9 +52,8 @@ public class LinkedList<E> {
 	
 	public void addFirst(E element){
 		Node newNode = new Node(element);
-		newNode.next = head;
-		head = newNode;
-		dummyNode.next = head;
+		newNode.next = dummyNode.next;
+		dummyNode.next = newNode;
 		size += 1;
 	}
 	
@@ -70,7 +66,7 @@ public class LinkedList<E> {
 		if (index == 0)
 			addFirst(ele);
 		// 任意位置添加元素
-		Node pin = head;
+		Node pin = dummyNode.next;
 		for(int i = 0; i < index-1; i++){
 			pin = pin.next;
 		}
