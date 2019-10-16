@@ -93,23 +93,44 @@ public class LinkedList<E> {
 	
 	// TODO
 	public E get(int index){
-		Node cur = dummyNode.n;
-		return (E) "d";
+		Node cur = dummyNode.next;
+		for(int i = 0; i < index; i++){
+			cur = cur.next;
+		}
+		return cur.value;
 	}
 	
 	// TODO 修改索引 idx 的元素
-	public void changeEle(int idx){
-		
+	public void changeEle(int idx, E ele){
+		Node cur = dummyNode.next;
+		for(int i = 0; i < idx; i++){
+			cur = cur.next;
+		}
+		cur.value = ele;
 	}
 	
 	// TODO 查看是否包含
 	public boolean contains(E ele){
+		Node cur = dummyNode;
+		while (cur.next != null){
+			if (cur.value.equals(ele))
+				return true;
+			cur = cur.next;
+		}
 		return false;
 	}
 	
 	// TODO 删除元素
 	public void remove(int index){
-		
+		if (index < 0 | index > size){
+			throw new IllegalArgumentException("index out of size");
+		}
+		Node cur = dummyNode;
+		for(int i = 0; i < index; i++){
+			cur = cur.next;
+		}
+		cur.next = cur.next.next;
+		//cur.next.next = null;
 	}
 	
 	public static void main(String[] args){
@@ -123,6 +144,10 @@ public class LinkedList<E> {
 		System.out.println(LL);
 		LL.addItemWithDummy("addDummy", 0);
 		System.out.println(LL);
+		System.out.println(LL.contains("ele"));
+		LL.remove(1);
+		System.out.println(LL);
+		System.out.println(LL.contains("ele"));
 	}
 	
 
