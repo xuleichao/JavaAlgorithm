@@ -20,7 +20,7 @@ public class SingleLinkedList {
 	public void insertNth(int x, int position){
 		// 判断是否可以被删除
 		if (position < 0 || position > getSize()){
-			throw new RuntimeException("input position is not satisfied.")	
+			throw new RuntimeException("input position is not satisfied.");
 		}
 		
 		else if (position == 0){
@@ -37,6 +37,11 @@ public class SingleLinkedList {
 		newNode.next = cur.next;
 	}
 	
+	private int getSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	// delete head node
 	public void deleteHead(){
 		if (isEmpty()){
@@ -46,10 +51,15 @@ public class SingleLinkedList {
 	}
 	
 	//delete nth node
+	private boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	public void deleteNthNode(int position){
 		// 判断是否可以被删除
 		if (position < 0 || position > getSize()){
-			throw new RuntimeException("input position is not satisfied.")	
+			throw new RuntimeException("input position is not satisfied.");
 		}
 				
 		
@@ -80,6 +90,11 @@ public class SingleLinkedList {
 		for(int i=0; i<10; ++i){
 			System.out.println(i);
 		}
+	}
+
+	private void display() {
+		// TODO Auto-generated method stub
+		
 	}
 }
 
