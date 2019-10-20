@@ -1,6 +1,6 @@
 package Practices;
 
-public class BST {
+public class BST <E extends Comparable<E>>{
 	
 	private class Node{
 		int val;
@@ -13,5 +13,23 @@ public class BST {
 			right = null;
 		}
 	}
-
+	
+	// 根节点
+	Node root;
+	int size;
+	
+	public BST(){
+		root = null;
+		size = 0;
+	}
+	
+	public int getSize(){
+		return size;
+	}
+	
+	public boolean isEmpty(){
+		return size == 0;
+	}
+	
+	//TOOD add elements
 }
