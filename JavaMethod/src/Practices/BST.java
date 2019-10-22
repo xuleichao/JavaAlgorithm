@@ -31,5 +31,29 @@ public class BST <E extends Comparable<E>>{
 		return size == 0;
 	}
 	
-	//TOOD add elements
+	//add elements 不处理相等的情况，非递归实现
+	public void add(Node root, Integer ele){
+		if (root == null){
+			root = new Node(ele);
+		}
+		Node NN = root;
+		while (NN != null){
+			if (ele.compareTo(NN.val) < 0){
+				NN = NN.left;
+			}
+			else if (ele.compareTo(NN.val) > 0){
+				NN = NN.right;
+			}
+			else{
+				
+			}
+		}
+		NN = new Node(ele);
+	}
+	
+	// toString
+	@Override
+	public String toString(){
+		return "";
+	}
 }
