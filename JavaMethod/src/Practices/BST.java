@@ -3,11 +3,11 @@ package Practices;
 public class BST <E extends Comparable<E>>{
 	
 	private class Node{
-		int val;
+		E val;
 		Node left;
 		Node right;
 		
-		public Node(int ele){
+		public Node(E ele){
 			val = ele;
 			left = null;
 			right = null;
@@ -32,7 +32,7 @@ public class BST <E extends Comparable<E>>{
 	}
 	
 	//add elements 不处理相等的情况，非递归实现
-	public void add(Node root, Integer ele){
+	public void add(Node root, E ele){
 		if (root == null){
 			root = new Node(ele);
 			return;
@@ -50,6 +50,14 @@ public class BST <E extends Comparable<E>>{
 			}
 		}
 		NN = new Node(ele);
+	}
+	
+	public void addItem(E ele){
+		
+	}
+	
+	private Node addItem(Node N, Integer ele){
+		return N;
 	}
 	
 	// toString
