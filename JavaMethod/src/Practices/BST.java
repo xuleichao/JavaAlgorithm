@@ -35,6 +35,7 @@ public class BST <E extends Comparable<E>>{
 	public void add(Node root, Integer ele){
 		if (root == null){
 			root = new Node(ele);
+			return;
 		}
 		Node NN = root;
 		while (NN != null){
@@ -45,7 +46,7 @@ public class BST <E extends Comparable<E>>{
 				NN = NN.right;
 			}
 			else{
-				
+				return;
 			}
 		}
 		NN = new Node(ele);
