@@ -35,6 +35,7 @@ public class BST <E extends Comparable<E>>{
 	public void add(Node root, E ele){
 		if (root == null){
 			root = new Node(ele);
+			size ++;
 			return;
 		}
 		Node NN = root;
@@ -50,19 +51,69 @@ public class BST <E extends Comparable<E>>{
 			}
 		}
 		NN = new Node(ele);
+		size ++;
 	}
 	
 	public void addItem(E ele){
-		
+		if (root == null){
+			root = new Node(ele);
+			size ++;
+			return;
+		}
+		addItem(root, ele);
+		size ++;
 	}
 	
-	private Node addItem(Node N, Integer ele){
-		return N;
+	private void addItem(Node N, E ele){
+		if (N.val.compareTo(ele) < 0){
+			if (N.right != null){
+				addItem(N.right, ele);
+			}
+			else{
+				N.right = new Node(ele);
+			}
+		}
+		else{
+			if (N.left != null){
+				addItem(N.left, ele);
+			}
+			else{
+				N.left = new Node(ele);
+			}
+		}
+	}
+	
+	public void forthTraverse(Node nn){
+		if (nn == null){
+			return;
+		}
+		System.out.println(nn.val);
+		if (nn.left != null){
+			forthTraverse(nn.left);
+		}
+		else if (nn.right != null){
+			forthTraverse(nn.right);
+		}
+		else {
+			return;
+		}
 	}
 	
 	// toString
 	@Override
 	public String toString(){
 		return "";
+	}
+	
+	private String recursionString(){
+		return "";
+	}
+	
+	public static void main(String[] args){
+		BST tree = new BST();
+		tree.addItem(4);
+		tree.addItem(9);
+		tree.addItem(2);
+		tree.forthTraverse(tree.root);
 	}
 }
