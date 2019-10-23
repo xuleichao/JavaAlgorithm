@@ -88,15 +88,9 @@ public class BST <E extends Comparable<E>>{
 			return;
 		}
 		System.out.println(nn.val);
-		if (nn.left != null){
-			forthTraverse(nn.left);
-		}
-		else if (nn.right != null){
-			forthTraverse(nn.right);
-		}
-		else {
-			return;
-		}
+		forthTraverse(nn.left);
+		forthTraverse(nn.right);
+		
 	}
 	
 	// toString
@@ -110,7 +104,7 @@ public class BST <E extends Comparable<E>>{
 	}
 	
 	public static void main(String[] args){
-		BST tree = new BST();
+		BST<Integer> tree = new BST<>();
 		tree.addItem(4);
 		tree.addItem(9);
 		tree.addItem(2);
