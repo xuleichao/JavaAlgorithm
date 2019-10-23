@@ -90,7 +90,6 @@ public class BST <E extends Comparable<E>>{
 		System.out.println(nn.val);
 		forthTraverse(nn.left);
 		forthTraverse(nn.right);
-		
 	}
 	
 	// toString
