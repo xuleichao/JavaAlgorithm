@@ -95,11 +95,28 @@ public class BST <E extends Comparable<E>>{
 	// toString
 	@Override
 	public String toString(){
-		return "";
+		StringBuilder res = new StringBuilder();
+		recursionString(root, 0, res);
+		return res.toString();
 	}
 	
-	private String recursionString(){
-		return "";
+	private void recursionString(Node NN, int depth, StringBuilder res){
+		if (NN == null){
+			res.append(gnrtDepthString(depth) + "null\n");
+			return;
+		}
+		else
+			res.append(gnrtDepthString(depth) + NN.val + '\n');
+		recursionString(NN.left, depth+1, res);
+		recursionString(NN.right, depth+1, res);
+	}
+	
+	private String gnrtDepthString(int depth){
+		StringBuilder rel = new StringBuilder();
+		for(int i = 0; i < depth; i++){
+			rel.append("--");
+		}
+		return rel.toString();
 	}
 	
 	public static void main(String[] args){
@@ -108,5 +125,6 @@ public class BST <E extends Comparable<E>>{
 		tree.addItem(9);
 		tree.addItem(2);
 		tree.forthTraverse(tree.root);
+		System.out.println(tree.toString());
 	}
 }
