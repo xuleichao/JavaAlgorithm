@@ -83,6 +83,7 @@ public class BST <E extends Comparable<E>>{
 		}
 	}
 	
+	// 前序遍历实现
 	public void forthTraverse(Node nn){
 		if (nn == null){
 			return;
@@ -92,7 +93,27 @@ public class BST <E extends Comparable<E>>{
 		forthTraverse(nn.right);
 	}
 	
-	// toString
+	//中序遍历实现
+	public void middleTraverse(Node NN){
+		if (NN == null){
+			return;
+		}
+		middleTraverse(NN.left);
+		System.out.println(NN.val);
+		middleTraverse(NN.right);
+	}
+	
+	// 后序遍历
+	public void backTraverse(Node NN){
+		if (NN == null){
+			return;
+		}
+		backTraverse(NN.left);
+		backTraverse(NN.right);
+		System.out.println(NN.val);
+	}
+	
+	// toString realize
 	@Override
 	public String toString(){
 		StringBuilder res = new StringBuilder();
@@ -121,10 +142,17 @@ public class BST <E extends Comparable<E>>{
 	
 	public static void main(String[] args){
 		BST<Integer> tree = new BST<>();
-		tree.addItem(4);
-		tree.addItem(9);
-		tree.addItem(2);
-		tree.forthTraverse(tree.root);
-		System.out.println(tree.toString());
+		int[] list = {4, 9, 2, 7, 1, 0};
+		/**
+		 *            4
+		 *         2     9
+		 *        1     7
+		 *       0
+		 */
+		for(int i = 0; i < list.length; i++){
+			tree.addItem(list[i]);
+		}
+		tree.backTraverse(tree.root);
+		//System.out.println(tree.toString());
 	}
 }
