@@ -140,6 +140,20 @@ public class BST <E extends Comparable<E>>{
 		return rel.toString();
 	}
 	
+	public E delMin(Node root){
+		if (root == null){
+			return null;
+		}
+		
+		Node NN = root;
+		while (NN.left != null){
+			NN = NN.left;
+		}
+		Node newNN = NN;
+		NN = NN.right;
+		return newNN.val;
+	}
+	
 	public static void main(String[] args){
 		BST<Integer> tree = new BST<>();
 		int[] list = {4, 9, 2, 7, 1, 0};
@@ -152,7 +166,9 @@ public class BST <E extends Comparable<E>>{
 		for(int i = 0; i < list.length; i++){
 			tree.addItem(list[i]);
 		}
-		tree.backTraverse(tree.root);
-		//System.out.println(tree.toString());
+		//tree.backTraverse(tree.root);
+		System.out.println(tree.toString());
+		Object N = tree.delMin(tree.root);
+		System.out.println(tree.toString());
 	}
 }
