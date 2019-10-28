@@ -140,18 +140,16 @@ public class BST <E extends Comparable<E>>{
 		return rel.toString();
 	}
 	
-	public E delMin(Node root){
-		if (root == null){
-			return null;
+	public Node delMin(Node NN){
+		if (NN.left == null){
+			Node rightNode = NN.right;
+			NN.left = rightNode;
+			NN = null;
+			size--;
+			return rightNode;
 		}
-		
-		Node NN = root;
-		while (NN.left != null){
-			NN = NN.left;
-		}
-		Node newNN = NN;
-		NN = NN.right;
-		return newNN.val;
+		NN.left = delMin(NN.left);
+		return NN;
 	}
 	
 	public static void main(String[] args){
