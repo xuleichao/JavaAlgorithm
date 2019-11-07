@@ -140,6 +140,16 @@ public class BST <E extends Comparable<E>>{
 		return rel.toString();
 	}
 	
+	//寻找最小节点
+	public Node findMin(Node NN){
+		if (NN.left == null){
+			return NN;
+		}
+		else{
+			return findMin(NN.left);
+		}
+	}
+	
 	public Node delMin(Node NN){
 		if (NN.left == null){
 			Node rightNode = NN.right;
@@ -168,8 +178,55 @@ public class BST <E extends Comparable<E>>{
 	}
 	
 	//TODO
-	public Node delItem(Node NN){
-		return NN;
+	/**
+	 * 情况1 2 3 hibbard deletion
+	 * 情况1 只有左子树 删除节然后补齐即可
+	 * 情况2 只有右子树 删除节点然后补齐即可
+	 * 情况3 左右子树都存在，在左子树寻找被删除节点的前驱或者在右子树寻找被删除
+	 * 节点的后继
+	 * @param NN
+	 * @return
+	 */
+	public Node delItem(Node NN, E e){
+		if(NN == null){
+			return null;
+		}
+		if (e.compareTo(NN.val) > 0){
+			Node rightNode = delItem(NN.right, e);
+			NN.right = rightNode;
+			return NN;
+		}
+		else if (e.compareTo(NN.val) < 0){
+			Node leftNode = delItem(NN.left, e);
+			NN.left = leftNode;
+			return NN;
+		}
+		else{
+			//当只有右子树
+			if(NN.left == null){
+				Node rightNode = NN.right;
+				NN.right = null;
+				size--;
+				return rightNode;
+			}
+			//当只有左子树
+			if(NN.right == null){
+				Node leftNode = NN.left;
+				NN.left = null;
+				size --;
+				return leftNode;
+			}
+			//即有左子树，又有右子树
+			Node succer = findMin(NN.right);
+			Node NewrightNode = delMax(NN.right);
+			succer.left = NN.left;
+			succer.right = NewrightNode;
+			NN.left = null;
+			NN.right = null;
+			return succer;
+			
+		}
+		
 	}
 		
 	public static void main(String[] args){
@@ -188,5 +245,8 @@ public class BST <E extends Comparable<E>>{
 		System.out.println(tree.toString());
 		Object N = tree.delMin(tree.root);
 		System.out.println(tree.toString());
+		N = tree.findMin(tree.root);
+		System.out.println(N);
+		
 	}
 }
