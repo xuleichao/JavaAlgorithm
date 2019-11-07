@@ -152,6 +152,26 @@ public class BST <E extends Comparable<E>>{
 		return NN;
 	}
 	
+	//TODO
+	public Node delMax(Node NN){
+		if(NN == null)
+			return null;
+		// while right child is null
+		if(NN.right == null){
+			Node leftNode = NN.left;
+			NN.right = leftNode;
+			NN = null;
+			return leftNode;
+		}
+		NN.right = delMax(NN);
+		return NN;
+	}
+	
+	//TODO
+	public Node delItem(Node NN){
+		return NN;
+	}
+		
 	public static void main(String[] args){
 		BST<Integer> tree = new BST<>();
 		int[] list = {4, 9, 2, 7, 1, 0};
