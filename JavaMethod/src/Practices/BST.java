@@ -177,17 +177,30 @@ public class BST <E extends Comparable<E>>{
 		return NN;
 	}
 	
-	//TODO
+	// 删除任意指定节点
+	public Node delItem(E e){
+		if (root.val == e){
+			return delItem(root, e);
+		}
+		
+		return (BST<E>.Node) e;
+	}
+	
+	public void remove(E e){
+		Node res = delItem(root, e);
+	}
+	
 	/**
 	 * 情况1 2 3 hibbard deletion
 	 * 情况1 只有左子树 删除节然后补齐即可
 	 * 情况2 只有右子树 删除节点然后补齐即可
 	 * 情况3 左右子树都存在，在左子树寻找被删除节点的前驱或者在右子树寻找被删除
 	 * 节点的后继
+	 * 前驱、后继的解释，后继指节点右子树的最小值，前驱指左子树的最大值
 	 * @param NN
 	 * @return
 	 */
-	public Node delItem(Node NN, E e){
+	private Node delItem(Node NN, E e){
 		if(NN == null){
 			return null;
 		}
@@ -225,7 +238,29 @@ public class BST <E extends Comparable<E>>{
 			NN.right = null;
 			return succer;
 			
+		}	
+	}
+	
+	private boolean containItem(Node NN, E e){
+		if (e.compareTo(NN.val) > 0){
+			if (NN.right == null)
+				return false;
+			return containItem(NN.right, e);
 		}
+		
+		else if(e.compareTo(NN.val) < 0){
+			if (NN.left == null)
+					return false;
+			return containItem(NN.left, e);
+		}
+		
+		else{
+			return true;
+		}
+			
+	}
+	
+	public boolean contains(E e){
 		
 	}
 		

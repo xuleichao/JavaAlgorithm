@@ -15,13 +15,13 @@ public class BSTSet<E extends Comparable<E>> implements Set<E>{
 	
 	@Override
 	public void remove(E e){
-		
+		bst.remove(e);
 	}
 	
 	@Override
 	public boolean contains(E e){
-		boolean res;
-		return true;
+		boolean res = bst.contains(e);
+		return res;
 	}
 	
 	@Override
