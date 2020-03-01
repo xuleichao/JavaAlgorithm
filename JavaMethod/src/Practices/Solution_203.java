@@ -3,7 +3,7 @@ package Practices;
 /**
  * Definition for singly-linked list.
  * leetcode problem 203
- * µİ¹éÊµÏÖÉ¾³ı
+ * é€’å½’å®ç°åˆ é™¤
  */
 class ListNode {
      int val;

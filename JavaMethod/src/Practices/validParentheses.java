@@ -4,9 +4,9 @@ import java.util.Stack;
 
 class validParentheses {
     private Stack<Character> stack = new Stack<>();
-    //¼ì²éºÏ·¨ĞÔ·½·¨
+    //æ£€æŸ¥åˆæ³•æ€§æ–¹æ³•
     public boolean isValid(String s) {
-	//×Ö·û´®ÔªËØÈëÕ»
+	//å­—ç¬¦ä¸²å…ƒç´ å…¥æ ˆ
         if (s.length() == 0){
             return true;
         }

@@ -2,7 +2,7 @@ package Practices;
 
 public interface loopQueueInterface<E> {
 	/**
-	 * ѭ�����нӿ�
+	 * 
 	 */
 	int getSize();
 	int getCapacity();
