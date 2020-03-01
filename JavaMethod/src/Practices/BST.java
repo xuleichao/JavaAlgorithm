@@ -60,26 +60,32 @@ public class BST <E extends Comparable<E>>{
 			size ++;
 			return;
 		}
-		addItem(root, ele);
-		size ++;
+		boolean addres = addItem(root, ele);
+		if (addres==true){size ++;}
 	}
 	
-	private void addItem(Node N, E ele){
+	private boolean addItem(Node N, E ele){
 		if (N.val.compareTo(ele) < 0){
 			if (N.right != null){
-				addItem(N.right, ele);
+				return addItem(N.right, ele);
 			}
 			else{
 				N.right = new Node(ele);
 			}
+			return true;
 		}
-		else{
+		else if (N.val.compareTo(ele) > 0){
 			if (N.left != null){
-				addItem(N.left, ele);
+				return addItem(N.left, ele);
 			}
 			else{
 				N.left = new Node(ele);
 			}
+			return true;
+		}
+		else{
+			// 如果已经存在元素，不必添加，同时返回false
+			return false;
 		}
 	}
 	
