@@ -5,7 +5,7 @@ public interface MapInterface<K, V> {
 	boolean contains(K k);
 	int getSize();
 	V getValue(K k);
-	V remove(K k);
+	void remove(K k);
 	boolean isEmpty();
 	boolean set(K k, V v);
 }

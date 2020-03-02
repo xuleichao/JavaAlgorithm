@@ -5,7 +5,7 @@ public class linkedMap<K, V> implements MapInterface<K, V> {
 	private int size;
 	private Node head;
 	
-	private class Node<K, V>{
+	private class Node{
 		K key;
 		V value;
 		Node next;
@@ -48,7 +48,13 @@ public class linkedMap<K, V> implements MapInterface<K, V> {
 
 	@Override
 	public boolean contains(K k) {
-		// TODO Auto-generated method stub
+		Node tmp = head.next;
+		while(tmp.next != null){
+			if (tmp.key == k){
+				return true;
+			}
+			tmp = tmp.next;
+		}
 		return false;
 	}
 
@@ -59,14 +65,44 @@ public class linkedMap<K, V> implements MapInterface<K, V> {
 
 	@Override
 	public V getValue(K k) {
-		// TODO Auto-generated method stub
+		Node tmp = head.next;
+		while(tmp.next != null){
+			if (tmp.key.equals(k)){
+				return tmp.value;
+			}
+			tmp = tmp.next;
+		}
 		return null;
 	}
-
-	@Override
-	public V remove(K k) {
-		// TODO Auto-generated method stub
+	
+	private Node getNode(K k){
+		Node tmp = head.next;
+		while(tmp.next != null){
+			if (tmp.key.equals(k)){
+				return tmp;
+			}
+			tmp = tmp.next;
+		}
 		return null;
+	}
+	
+	private Node removeItem(Node N, K x){
+		if (N == null){
+			return null;
+		}
+		else if(N.key == x){
+			return N.next;
+		}
+		else{
+			N.next = removeItem(N.next, x);
+			return N;
+		}
+	}
+	
+	@Override
+	public void remove(K k){
+		// find the node to be removed
+		head.next = removeItem(head.next, k);
 	}
 
 	@Override
@@ -76,8 +112,15 @@ public class linkedMap<K, V> implements MapInterface<K, V> {
 
 	@Override
 	public boolean set(K k, V v) {
-		// TODO Auto-generated method stub
-		return false;
+		Node tmp = getNode(k);
+		if (tmp != null){
+			tmp.value = v;
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 	
 	@Override
@@ -95,6 +138,9 @@ public class linkedMap<K, V> implements MapInterface<K, V> {
 		System.out.println("test");
 		linkedMap map = new linkedMap();
 		map.add("test", "value");
+		map.add("test1", "value");
+		map.add("test2", "value");
+		map.remove("test1");
 		System.out.println(map);
 	}
 }
